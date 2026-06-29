@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Search, User, Heart, ShoppingBag, Menu } from 'lucide-react';
 import { useUIStore } from '@/lib/stores/ui-store';
 import { useCartStore } from '@/lib/stores/cart-store';
@@ -13,11 +13,16 @@ export function Navbar() {
   const getItemCount = useCartStore((s) => s.getItemCount);
   const itemCount = getItemCount();
   const [shopOpen, setShopOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 border-b border-cream-300/60 bg-cream-100/80 backdrop-blur-xl">
       <div className="container-luxury">
-        <div className="flex h-16 items-center justify-between md:h-20">
+        <div className="flex h-16 items-center justify-between md:h-24">
           {/* Left: Mobile menu + nav links */}
           <div className="flex flex-1 items-center gap-6">
             <button
@@ -95,11 +100,12 @@ export function Navbar() {
           </div>
 
           {/* Center: Logo */}
-          <Link
-            href="/"
-            className="font-serif text-2xl font-bold tracking-[0.2em] text-charcoal-900 md:text-3xl"
-          >
-            QASVANI
+          <Link href="/" className="flex items-center">
+            <img
+              src="/images/qlogo.png"
+              alt="QASVANI"
+              className="h-12 w-auto md:h-16"
+            />
           </Link>
 
           {/* Right: Icons */}
@@ -131,7 +137,7 @@ export function Navbar() {
               className="relative text-charcoal-700 transition-colors hover:text-charcoal-900"
             >
               <ShoppingBag className="h-5 w-5" />
-              {itemCount > 0 && (
+              {mounted && itemCount > 0 && (
                 <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center bg-gold-400 text-[10px] font-bold text-white">
                   {itemCount}
                 </span>

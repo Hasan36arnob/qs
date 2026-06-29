@@ -26,12 +26,15 @@ export default function HomePage() {
       <section className="relative h-[70vh] min-h-[500px] w-full overflow-hidden bg-charcoal-800">
         <img
           src="https://images.pexels.com/photos/11705153/pexels-photo-11705153.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
-          alt="QASVANI luxury lifestyle"
+          alt="QASVANI luxury attar collection"
           className="absolute inset-0 h-full w-full object-cover opacity-60"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/80 via-charcoal-900/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/90 via-charcoal-900/40 to-charcoal-900/30" />
         <div className="container-luxury relative flex h-full flex-col items-center justify-center text-center">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-gold-300">
+          <p className="mb-2 font-serif text-2xl font-bold tracking-[0.2em] text-gold-300 md:text-3xl">
+            QASVANI
+          </p>
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-cream-200/70">
             Luxury Lifestyle Collection
           </p>
           <h1 className="font-serif text-5xl font-bold leading-tight text-cream-100 md:text-7xl">
@@ -182,8 +185,8 @@ export default function HomePage() {
             </div>
             <div className="aspect-square md:aspect-auto">
               <img
-                src="https://images.pexels.com/photos/9659898/pexels-photo-9659898.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop"
-                alt="Oud Royale editorial"
+                src="https://images.unsplash.com/photo-1700665053090-e64274eeba84?fm=jpg&q=80&w=800&h=800&auto=format&fit=crop"
+                alt="Oud Royale perfume"
                 className="h-full w-full object-cover"
               />
             </div>
