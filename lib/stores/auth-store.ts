@@ -9,7 +9,7 @@ const mockUser: User = {
   fullName: 'Arif Rahman',
   email: 'arif.rahman@gmail.com',
   phone: '+880 1711 222333',
-  avatar: 'https://picsum.photos/seed/avatar-u1/200/200',
+  avatar: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
   addresses: [
     {
       id: 'addr-1',

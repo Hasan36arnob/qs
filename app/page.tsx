@@ -25,7 +25,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[500px] w-full overflow-hidden bg-charcoal-800">
         <img
-          src="https://picsum.photos/seed/qasvani-hero/1920/1080"
+          src="https://images.pexels.com/photos/11705153/pexels-photo-11705153.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
           alt="QASVANI luxury lifestyle"
           className="absolute inset-0 h-full w-full object-cover opacity-60"
         />
@@ -182,7 +182,7 @@ export default function HomePage() {
             </div>
             <div className="aspect-square md:aspect-auto">
               <img
-                src="https://picsum.photos/seed/oud-editorial/800/800"
+                src="https://images.pexels.com/photos/9659898/pexels-photo-9659898.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop"
                 alt="Oud Royale editorial"
                 className="h-full w-full object-cover"
               />

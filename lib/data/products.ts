@@ -1,5 +1,8 @@
 import type { Product } from '@/types';
 
+const px = (id: number) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop`;
+
 export const products: Product[] = [
   {
     id: 'p1',
@@ -10,11 +13,7 @@ export const products: Product[] = [
     category: 'perfume-attor',
     price: 12500,
     compareAtPrice: 15000,
-    images: [
-      'https://picsum.photos/seed/oud-royale-1/800/800',
-      'https://picsum.photos/seed/oud-royale-2/800/800',
-      'https://picsum.photos/seed/oud-royale-3/800/800',
-    ],
+    images: [px(11705153), px(11178436), px(9659898)],
     variants: [{ name: 'Size', options: ['50ml', '100ml'] }],
     stock: 24,
     scentNotes: {
@@ -34,10 +33,7 @@ export const products: Product[] = [
       'A concentrated oil-based fragrance blending dark oud, leather, and smoky vetiver. Alcohol-free and long-lasting.',
     category: 'perfume-attor',
     price: 8500,
-    images: [
-      'https://picsum.photos/seed/noir-intense-1/800/800',
-      'https://picsum.photos/seed/noir-intense-2/800/800',
-    ],
+    images: [px(30508098), px(30508100), px(30508099)],
     variants: [{ name: 'Size', options: ['12ml', '24ml'] }],
     stock: 40,
     scentNotes: {
@@ -57,10 +53,7 @@ export const products: Product[] = [
       'A delicate yet radiant floral built around the legendary Taif rose, softened by white musk and gentle woods.',
     category: 'perfume-attor',
     price: 9800,
-    images: [
-      'https://picsum.photos/seed/rose-taif-1/800/800',
-      'https://picsum.photos/seed/rose-taif-2/800/800',
-    ],
+    images: [px(30508098), px(30508100), px(30508099)],
     variants: [{ name: 'Size', options: ['50ml', '100ml'] }],
     stock: 18,
     scentNotes: {
@@ -81,11 +74,7 @@ export const products: Product[] = [
     category: 'mens-lifestyle',
     price: 18500,
     compareAtPrice: 22000,
-    images: [
-      'https://picsum.photos/seed/overcoat-charcoal-1/800/800',
-      'https://picsum.photos/seed/overcoat-charcoal-2/800/800',
-      'https://picsum.photos/seed/overcoat-charcoal-3/800/800',
-    ],
+    images: [px(1181391), px(7679471), px(8476591)],
     variants: [
       { name: 'Size', options: ['S', 'M', 'L', 'XL'] },
       { name: 'Color', options: ['Charcoal', 'Camel'] },
@@ -103,10 +92,7 @@ export const products: Product[] = [
       'Breathable European linen with a relaxed yet refined cut. Mother-of-pearl buttons and a soft pre-washed finish.',
     category: 'mens-lifestyle',
     price: 4200,
-    images: [
-      'https://picsum.photos/seed/linen-ivory-1/800/800',
-      'https://picsum.photos/seed/linen-ivory-2/800/800',
-    ],
+    images: [px(996324), px(7679471), px(8476591)],
     variants: [
       { name: 'Size', options: ['S', 'M', 'L', 'XL', 'XXL'] },
     ],
@@ -123,10 +109,7 @@ export const products: Product[] = [
       'Fine-gauge extra-fine merino wool with a smooth hand and elegant drape. Perfect for layering through the seasons.',
     category: 'mens-lifestyle',
     price: 5800,
-    images: [
-      'https://picsum.photos/seed/merino-taupe-1/800/800',
-      'https://picsum.photos/seed/merino-taupe-2/800/800',
-    ],
+    images: [px(7679471), px(1181391), px(8476591)],
     variants: [{ name: 'Size', options: ['S', 'M', 'L', 'XL'] }],
     stock: 35,
     tags: ['knitwear', 'essentials'],
@@ -142,11 +125,7 @@ export const products: Product[] = [
     category: 'womens-lifestyle',
     price: 12500,
     compareAtPrice: 15000,
-    images: [
-      'https://picsum.photos/seed/silk-slip-1/800/800',
-      'https://picsum.photos/seed/silk-slip-2/800/800',
-      'https://picsum.photos/seed/silk-slip-3/800/800',
-    ],
+    images: [px(1381553), px(19490401), px(31094610)],
     variants: [
       { name: 'Size', options: ['XS', 'S', 'M', 'L'] },
     ],
@@ -163,10 +142,7 @@ export const products: Product[] = [
       'A double-faced wool wrap coat with a self-tie belt. Sculptural collar and clean, minimalist lines.',
     category: 'womens-lifestyle',
     price: 16500,
-    images: [
-      'https://picsum.photos/seed/wrap-coat-camel-1/800/800',
-      'https://picsum.photos/seed/wrap-coat-camel-2/800/800',
-    ],
+    images: [px(19490401), px(31094610), px(19014599)],
     variants: [
       { name: 'Size', options: ['XS', 'S', 'M', 'L'] },
     ],
@@ -183,10 +159,7 @@ export const products: Product[] = [
       'An open-front cardigan in pure cashmere. Cloud-soft texture with a relaxed, elegant silhouette.',
     category: 'womens-lifestyle',
     price: 8900,
-    images: [
-      'https://picsum.photos/seed/cashmere-blush-1/800/800',
-      'https://picsum.photos/seed/cashmere-blush-2/800/800',
-    ],
+    images: [px(31094610), px(19490401), px(1381553)],
     variants: [{ name: 'Size', options: ['XS', 'S', 'M', 'L'] }],
     stock: 22,
     tags: ['cashmere', 'knitwear'],
@@ -201,10 +174,7 @@ export const products: Product[] = [
       'A lightweight serum with niacinamide, hyaluronic acid, and vitamin C. Brightens, hydrates, and evens skin tone.',
     category: 'skincare',
     price: 3200,
-    images: [
-      'https://picsum.photos/seed/serum-radiance-1/800/800',
-      'https://picsum.photos/seed/serum-radiance-2/800/800',
-    ],
+    images: [px(4889036), px(5938567), px(3737599)],
     variants: [{ name: 'Size', options: ['30ml', '50ml'] }],
     stock: 80,
     skinType: 'All skin types',
@@ -220,10 +190,7 @@ export const products: Product[] = [
       'A rich overnight treatment with ceramides, peptides, and shea butter. Restores moisture and elasticity.',
     category: 'skincare',
     price: 2800,
-    images: [
-      'https://picsum.photos/seed/night-cream-1/800/800',
-      'https://picsum.photos/seed/night-cream-2/800/800',
-    ],
+    images: [px(5938567), px(4889036), px(3737599)],
     variants: [{ name: 'Size', options: ['50ml'] }],
     stock: 65,
     skinType: 'Dry to normal',
@@ -239,10 +206,7 @@ export const products: Product[] = [
       'A pH-balanced foaming cleanser with green tea extract and glycerin. Removes impurities without stripping.',
     category: 'skincare',
     price: 1800,
-    images: [
-      'https://picsum.photos/seed/cleanser-foam-1/800/800',
-      'https://picsum.photos/seed/cleanser-foam-2/800/800',
-    ],
+    images: [px(3737599), px(4889036), px(5938567)],
     variants: [{ name: 'Size', options: ['150ml'] }],
     stock: 100,
     skinType: 'All skin types',
@@ -258,10 +222,7 @@ export const products: Product[] = [
       'A slim card holder in full-grain Italian leather. Four card slots and a center pocket. Ages beautifully.',
     category: 'accessories',
     price: 2200,
-    images: [
-      'https://picsum.photos/seed/card-holder-tan-1/800/800',
-      'https://picsum.photos/seed/card-holder-tan-2/800/800',
-    ],
+    images: [px(1132269), px(12444596), px(7679471)],
     variants: [{ name: 'Color', options: ['Tan', 'Black', 'Cognac'] }],
     stock: 50,
     tags: ['leather', 'gift', 'essentials'],
@@ -276,10 +237,7 @@ export const products: Product[] = [
       'A hand-rolled silk twill scarf with an intricate gold and cream paisley motif. 90cm x 90cm.',
     category: 'accessories',
     price: 4800,
-    images: [
-      'https://picsum.photos/seed/scarf-gold-1/800/800',
-      'https://picsum.photos/seed/scarf-gold-2/800/800',
-    ],
+    images: [px(30447366), px(1132269), px(5828579)],
     variants: [{ name: 'Color', options: ['Gold', 'Ivory'] }],
     stock: 28,
     tags: ['silk', 'gift', 'bestseller'],
@@ -294,10 +252,7 @@ export const products: Product[] = [
       'A 35mm full-grain leather belt with a brushed brass buckle. Handcrafted and stitched in Italy.',
     category: 'accessories',
     price: 3500,
-    images: [
-      'https://picsum.photos/seed/belt-cognac-1/800/800',
-      'https://picsum.photos/seed/belt-cognac-2/800/800',
-    ],
+    images: [px(4452702), px(5828579), px(1132269)],
     variants: [
       { name: 'Size', options: ['32', '34', '36', '38', '40'] },
     ],
@@ -314,10 +269,7 @@ export const products: Product[] = [
       'A warm, enveloping scent of amber, vanilla orchid, and tonka bean. Soft, sensual, and deeply comforting.',
     category: 'perfume-attor',
     price: 11000,
-    images: [
-      'https://picsum.photos/seed/amber-velvet-1/800/800',
-      'https://picsum.photos/seed/amber-velvet-2/800/800',
-    ],
+    images: [px(9659898), px(11705153), px(11178436)],
     variants: [{ name: 'Size', options: ['50ml', '100ml'] }],
     stock: 20,
     scentNotes: {
@@ -337,10 +289,7 @@ export const products: Product[] = [
       'A flat-front trouser in Italian wool. Clean lines, a comfortable mid-rise, and a refined taper.',
     category: 'mens-lifestyle',
     price: 6500,
-    images: [
-      'https://picsum.photos/seed/trousers-navy-1/800/800',
-      'https://picsum.photos/seed/trousers-navy-2/800/800',
-    ],
+    images: [px(8476591), px(1181391), px(7679471)],
     variants: [
       { name: 'Size', options: ['30', '32', '34', '36', '38'] },
     ],
@@ -357,10 +306,7 @@ export const products: Product[] = [
       'A high-waisted pleated midi skirt in a fluid technical crepe. Effortless movement and elegant drape.',
     category: 'womens-lifestyle',
     price: 5200,
-    images: [
-      'https://picsum.photos/seed/skirt-stone-1/800/800',
-      'https://picsum.photos/seed/skirt-stone-2/800/800',
-    ],
+    images: [px(19014599), px(1381553), px(19490401)],
     variants: [
       { name: 'Size', options: ['XS', 'S', 'M', 'L'] },
     ],
@@ -377,10 +323,7 @@ export const products: Product[] = [
       'A clay-and-cream mask with vitamin C, kaolin, and turmeric. Brightens and refines in 10 minutes.',
     category: 'skincare',
     price: 2400,
-    images: [
-      'https://picsum.photos/seed/mask-vitc-1/800/800',
-      'https://picsum.photos/seed/mask-vitc-2/800/800',
-    ],
+    images: [px(3737599), px(5938567), px(4889036)],
     variants: [{ name: 'Size', options: ['75ml'] }],
     stock: 55,
     skinType: 'Dull and uneven',
@@ -396,10 +339,7 @@ export const products: Product[] = [
       'A classic round-frame sunglass in hand-polished acetate. UV400 lenses with a keyhole bridge.',
     category: 'accessories',
     price: 5500,
-    images: [
-      'https://picsum.photos/seed/sunglasses-tortoise-1/800/800',
-      'https://picsum.photos/seed/sunglasses-tortoise-2/800/800',
-    ],
+    images: [px(5828579), px(30447366), px(1132269)],
     variants: [{ name: 'Color', options: ['Tortoise', 'Black'] }],
     stock: 18,
     tags: ['eyewear', 'gift'],
@@ -414,10 +354,7 @@ export const products: Product[] = [
       'A clean, skin-like attar of white musk, soft florals, and a whisper of vanilla. Alcohol-free.',
     category: 'perfume-attor',
     price: 6500,
-    images: [
-      'https://picsum.photos/seed/white-musk-1/800/800',
-      'https://picsum.photos/seed/white-musk-2/800/800',
-    ],
+    images: [px(11178436), px(9659898), px(11705153)],
     variants: [{ name: 'Size', options: ['12ml', '24ml'] }],
     stock: 45,
     scentNotes: {
@@ -437,10 +374,7 @@ export const products: Product[] = [
       'A classic Oxford cotton shirt with a button-down collar. Woven from premium long-staple cotton.',
     category: 'mens-lifestyle',
     price: 3200,
-    images: [
-      'https://picsum.photos/seed/oxford-white-1/800/800',
-      'https://picsum.photos/seed/oxford-white-2/800/800',
-    ],
+    images: [px(996324), px(7679471), px(1181391)],
     variants: [
       { name: 'Size', options: ['S', 'M', 'L', 'XL', 'XXL'] },
     ],

@@ -12,31 +12,31 @@ export const CATEGORIES: CategoryInfo[] = [
     id: 'mens-lifestyle',
     name: "Men's Lifestyle",
     description: 'Refined essentials for the modern gentleman',
-    image: 'https://picsum.photos/seed/mens-lifestyle/800/1000',
+    image: 'https://images.pexels.com/photos/1181391/pexels-photo-1181391.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop',
   },
   {
     id: 'womens-lifestyle',
     name: "Women's Lifestyle",
     description: 'Timeless elegance for the discerning woman',
-    image: 'https://picsum.photos/seed/womens-lifestyle/800/1000',
+    image: 'https://images.pexels.com/photos/1381553/pexels-photo-1381553.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop',
   },
   {
     id: 'perfume-attor',
     name: 'Perfume & Attor',
     description: 'Signature scents crafted with rare essences',
-    image: 'https://picsum.photos/seed/perfume-attor/800/1000',
+    image: 'https://images.pexels.com/photos/11705153/pexels-photo-11705153.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop',
   },
   {
     id: 'skincare',
     name: 'Skincare',
     description: 'Luxurious rituals for radiant skin',
-    image: 'https://picsum.photos/seed/skincare/800/1000',
+    image: 'https://images.pexels.com/photos/4889036/pexels-photo-4889036.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop',
   },
   {
     id: 'accessories',
     name: 'Accessories',
     description: 'The finishing touches of distinction',
-    image: 'https://picsum.photos/seed/accessories/800/1000',
+    image: 'https://images.pexels.com/photos/1132269/pexels-photo-1132269.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop',
   },
 ];
 
