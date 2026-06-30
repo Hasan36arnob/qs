@@ -284,6 +284,14 @@ const MOCK_PRODUCTS: Product[] = [
   }
 ];
 
+// Synchronous export — needed by modules (carts.ts, orders.ts) that do
+// in-memory lookups like `products.find((pr) => pr.id === id)` without awaiting.
+export const products: Product[] = MOCK_PRODUCTS;
+
+export function getProductById(id: string): Product | undefined {
+  return MOCK_PRODUCTS.find((p) => p.id === id);
+}
+
 export async function fetchProducts(): Promise<Product[]> {
   return MOCK_PRODUCTS;
 }
