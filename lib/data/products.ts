@@ -329,12 +329,33 @@ const MOCK_PRODUCTS: Product[] = [
   }
 ];
 
+// ---------------------------------------------------------------------------
+// Legacy id aliases (p1...p22) — orders.ts and carts.ts seed data reference
+// these short ids. Rather than rewrite 85 orders + 13 carts, we generate
+// clones of the real catalog products under the old ids so every lookup
+// still resolves to a valid Product.
+// ---------------------------------------------------------------------------
+
+const LEGACY_ID_COUNT = 22;
+
+const LEGACY_PRODUCTS: Product[] = Array.from({ length: LEGACY_ID_COUNT }, (_, i) => {
+  const base = MOCK_PRODUCTS[i % MOCK_PRODUCTS.length];
+  const id = `p${i + 1}`;
+  return {
+    ...base,
+    id,
+    slug: `${base.slug}-${id}`,
+  };
+});
+
+const ALL_PRODUCTS: Product[] = [...MOCK_PRODUCTS, ...LEGACY_PRODUCTS];
+
 // Synchronous export — needed by modules (carts.ts, orders.ts) that do
 // in-memory lookups like `products.find((pr) => pr.id === id)` without awaiting.
-export const products: Product[] = MOCK_PRODUCTS;
+export const products: Product[] = ALL_PRODUCTS;
 
 export function getProductById(id: string): Product | undefined {
-  return MOCK_PRODUCTS.find((p) => p.id === id);
+  return ALL_PRODUCTS.find((p) => p.id === id);
 }
 
 export async function fetchProducts(): Promise<Product[]> {
@@ -350,7 +371,7 @@ export async function fetchProductsByCategory(category: string): Promise<Product
 }
 
 export async function fetchProductBySlug(slug: string): Promise<Product | undefined> {
-  return MOCK_PRODUCTS.find((p) => p.slug === slug);
+  return ALL_PRODUCTS.find((p) => p.slug === slug);
 }
 
 export async function searchProducts(query: string): Promise<Product[]> {
