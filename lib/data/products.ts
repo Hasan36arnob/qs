@@ -5,6 +5,9 @@ const MOCK_PRODUCTS: Product[] = [
   // 1. Oud Noir (Perfume)
   {
     id: 'prod-oud-noir',
+    tags: [],
+    featured: false,
+    createdAt: '2026-01-01T00:00:00.000Z',
     slug: 'oud-noir-eau-de-parfum',
     name: 'Oud Noir',
     description: 'An elegant composition of rare Syrian oud, dark forest wood essences, and sweet rich honey notes. Designed for bold, unforgettable presences.',
@@ -26,6 +29,9 @@ const MOCK_PRODUCTS: Product[] = [
   // 2. Blue Ocean (Perfume)
   {
     id: 'prod-blue-ocean',
+    tags: [],
+    featured: false,
+    createdAt: '2026-01-01T00:00:00.000Z',
     slug: 'blue-ocean-eau-de-parfum',
     name: 'Blue Ocean',
     description: 'Fresh oceanic salt water accord paired with vibrant Calabrian bergamot and high-altitude white moss base notes.',
@@ -45,6 +51,9 @@ const MOCK_PRODUCTS: Product[] = [
   // 3. Royal Musk (Perfume)
   {
     id: 'prod-royal-musk',
+    tags: [],
+    featured: false,
+    createdAt: '2026-01-01T00:00:00.000Z',
     slug: 'royal-musk-eau-de-parfum',
     name: 'Royal Musk',
     description: 'A velvet layer of powdery pure white musk blended with elegant soft damask rose petals and subtle dry amber wood.',
@@ -65,6 +74,9 @@ const MOCK_PRODUCTS: Product[] = [
   // 4. Oud Royale - Premium Perfume
   {
     id: 'prod-oud-royale',
+    tags: [],
+    featured: false,
+    createdAt: '2026-01-01T00:00:00.000Z',
     slug: 'oud-royale-eau-de-parfum',
     name: 'Oud Royale',
     description: 'An opulent composition of rare Cambodian oud, Bulgarian rose, and warm golden amber. A majestic scent that commands presence and lingers with quiet authority.',
@@ -86,6 +98,9 @@ const MOCK_PRODUCTS: Product[] = [
   // 5. Rose Damascena Attar - Concentrated Attar Oil
   {
     id: 'prod-rose-damascena',
+    tags: [],
+    featured: false,
+    createdAt: '2026-01-01T00:00:00.000Z',
     slug: 'rose-damascena-attar',
     name: 'Rose Damascena Attar',
     description: 'Pure, alcohol-free concentrated oil attar crafted from hand-picked Damask rose petals. A deep, rich, and truly hypnotic rose formulation.',
@@ -105,6 +120,9 @@ const MOCK_PRODUCTS: Product[] = [
   // 6. Amber Imperial - Golden Amber Perfume
   {
     id: 'prod-amber-imperial',
+    tags: [],
+    featured: false,
+    createdAt: '2026-01-01T00:00:00.000Z',
     slug: 'amber-imperial-perfume',
     name: 'Amber Imperial',
     description: 'A luxurious combination of warm vanilla orchid, sweet benzoin, and rich, deep imperial amber. Radiates a soothing warmth.',
@@ -124,6 +142,9 @@ const MOCK_PRODUCTS: Product[] = [
   // 7. Sandalwood Gold - Attar Oil Blend
   {
     id: 'prod-sandalwood-gold',
+    tags: [],
+    featured: false,
+    createdAt: '2026-01-01T00:00:00.000Z',
     slug: 'sandalwood-gold-attar',
     name: 'Sandalwood Gold',
     description: 'Rich, creamy Mysore sandalwood blend in a concentrated oil base. Combined with hint of sweet vanilla and white cedarwood.',
@@ -146,6 +167,9 @@ const MOCK_PRODUCTS: Product[] = [
   // ==========================================
   {
     id: 'prod-hareem-sultan',
+    tags: [],
+    featured: false,
+    createdAt: '2026-01-01T00:00:00.000Z',
     slug: 'hareem-al-sultan-attar',
     name: 'Hareem Al Sultan Attar',
     description: 'A premium, alcohol-free sweet floral concentrated attar oil with soft notes of red apples, patchouli, and fresh jasmine.',
@@ -164,6 +188,9 @@ const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-bakhoor-nissa',
+    tags: [],
+    featured: false,
+    createdAt: '2026-01-01T00:00:00.000Z',
     slug: 'bakhoor-al-nissa-perfume',
     name: 'Bakhoor Al-Nissa',
     description: 'An elegant woody-floral spray featuring white agarwood smoke, sweet rose damascena, and vanilla orchid.',
@@ -182,6 +209,9 @@ const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-zahra-musk',
+    tags: [],
+    featured: false,
+    createdAt: '2026-01-01T00:00:00.000Z',
     slug: 'zahra-musk-attar',
     name: 'Zahra Musk Attar',
     description: 'Pure concentrated white floral musk oil with hints of sweet vanilla, lily of the valley, and soft powder.',
@@ -200,6 +230,9 @@ const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-ward-rose',
+    tags: [],
+    featured: false,
+    createdAt: '2026-01-01T00:00:00.000Z',
     slug: 'ward-rose-supreme',
     name: 'Ward Rose Supreme',
     description: 'An exquisite floral spray composed of hand-picked Taif rose oil, soft white musk, and golden sweet vanilla.',
@@ -218,6 +251,9 @@ const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-amber-safi',
+    tags: [],
+    featured: false,
+    createdAt: '2026-01-01T00:00:00.000Z',
     slug: 'amber-safi-attar',
     name: 'Amber Safi',
     description: 'Premium warm, sweet, alcohol-free concentrated amber oil attar. Very calming, rich, and stays on the skin for up to 36 hours.',
@@ -236,6 +272,9 @@ const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-lulu-oud',
+    tags: [],
+    featured: false,
+    createdAt: '2026-01-01T00:00:00.000Z',
     slug: 'lulu-oud-perfume',
     name: 'Lulu Oud',
     description: 'A soft, sweet feminine oud formulation with Bulgarian rose water, white sandalwood, and sweet honeyed musk.',
@@ -258,6 +297,9 @@ const MOCK_PRODUCTS: Product[] = [
   // ==========================================
   {
     id: 'prod-signature-shirt',
+    tags: [],
+    featured: false,
+    createdAt: '2026-01-01T00:00:00.000Z',
     slug: 'signature-shirt-mens-shirt',
     name: 'Signature Shirt',
     description: 'Woven from long-staple Egyptian cotton thread. Elegant tailored details with double stitching and luxury pearl buttons.',
@@ -271,6 +313,9 @@ const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-leather-wallet',
+    tags: [],
+    featured: false,
+    createdAt: '2026-01-01T00:00:00.000Z',
     slug: 'leather-wallet-premium-wallet',
     name: 'Leather Wallet',
     description: 'Crafted with certified full-grain vegetable-tanned leather. Holds up to 8 cards with designated quick-access pockets.',
