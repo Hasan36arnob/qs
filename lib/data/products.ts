@@ -174,7 +174,7 @@ const MOCK_PRODUCTS: Product[] = [
     name: 'Hareem Al Sultan Attar',
     description: 'A premium, alcohol-free sweet floral concentrated attar oil with soft notes of red apples, patchouli, and fresh jasmine.',
     price: 1890,
-    category: 'womens-wear',
+    category: 'womens-lifestyle',
     images: [
       'https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=800&q=80'
     ],
@@ -195,7 +195,7 @@ const MOCK_PRODUCTS: Product[] = [
     name: 'Bakhoor Al-Nissa',
     description: 'An elegant woody-floral spray featuring white agarwood smoke, sweet rose damascena, and vanilla orchid.',
     price: 2290,
-    category: 'womens-wear',
+    category: 'womens-lifestyle',
     images: [
       'https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=800&q=80'
     ],
@@ -216,7 +216,7 @@ const MOCK_PRODUCTS: Product[] = [
     name: 'Zahra Musk Attar',
     description: 'Pure concentrated white floral musk oil with hints of sweet vanilla, lily of the valley, and soft powder.',
     price: 1590,
-    category: 'womens-wear',
+    category: 'womens-lifestyle',
     images: [
       'https://images.unsplash.com/photo-1588405748373-122b2321bc31?auto=format&fit=crop&w=800&q=80'
     ],
@@ -237,7 +237,7 @@ const MOCK_PRODUCTS: Product[] = [
     name: 'Ward Rose Supreme',
     description: 'An exquisite floral spray composed of hand-picked Taif rose oil, soft white musk, and golden sweet vanilla.',
     price: 2490,
-    category: 'womens-wear',
+    category: 'womens-lifestyle',
     images: [
       'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80'
     ],
@@ -258,7 +258,7 @@ const MOCK_PRODUCTS: Product[] = [
     name: 'Amber Safi',
     description: 'Premium warm, sweet, alcohol-free concentrated amber oil attar. Very calming, rich, and stays on the skin for up to 36 hours.',
     price: 1990,
-    category: 'womens-wear',
+    category: 'womens-lifestyle',
     images: [
       'https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=800&q=80'
     ],
@@ -279,7 +279,7 @@ const MOCK_PRODUCTS: Product[] = [
     name: 'Lulu Oud',
     description: 'A soft, sweet feminine oud formulation with Bulgarian rose water, white sandalwood, and sweet honeyed musk.',
     price: 2790,
-    category: 'womens-wear',
+    category: 'womens-lifestyle',
     images: [
       'https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&w=800&q=80'
     ],
@@ -304,7 +304,7 @@ const MOCK_PRODUCTS: Product[] = [
     name: 'Signature Shirt',
     description: 'Woven from long-staple Egyptian cotton thread. Elegant tailored details with double stitching and luxury pearl buttons.',
     price: 1590,
-    category: 'mens-wear',
+    category: 'mens-lifestyle',
     images: [
       'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80'
     ],
