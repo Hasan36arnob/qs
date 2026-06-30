@@ -1,206 +1,308 @@
+// FILE: lib/data/products.ts
 import type { Product } from '@/types';
 
-const px = (id: number) =>
-  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop`;
+const MOCK_PRODUCTS: Product[] = [
+  // 1. Oud Noir (Perfume)
+  {
+    id: 'prod-oud-noir',
+    slug: 'oud-noir-eau-de-parfum',
+    name: 'Oud Noir',
+    description: 'An elegant composition of rare Syrian oud, dark forest wood essences, and sweet rich honey notes. Designed for bold, unforgettable presences.',
+    price: 2490,
+    compareAtPrice: 2990,
+    category: 'perfume-attor',
+    images: [
+      'https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80'
+    ],
+    stock: 24,
+    scentNotes: {
+      top: ['Honey', 'Saffron'],
+      heart: ['Rose', 'Patchouli', 'Jasmin'],
+      base: ['Cambodian Oud', 'Amber', 'Musk']
+    },
+    variants: [{ name: 'Size', options: ['50ml', '100ml'] }]
+  },
+  // 2. Blue Ocean (Perfume)
+  {
+    id: 'prod-blue-ocean',
+    slug: 'blue-ocean-eau-de-parfum',
+    name: 'Blue Ocean',
+    description: 'Fresh oceanic salt water accord paired with vibrant Calabrian bergamot and high-altitude white moss base notes.',
+    price: 2190,
+    category: 'perfume-attor',
+    images: [
+      'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80'
+    ],
+    stock: 12,
+    scentNotes: {
+      top: ['Bergamot', 'Grapefruit'],
+      heart: ['Sea Salt', 'Sage'],
+      base: ['White Moss', 'Patchouli']
+    },
+    variants: [{ name: 'Size', options: ['50ml', '100ml'] }]
+  },
+  // 3. Royal Musk (Perfume)
+  {
+    id: 'prod-royal-musk',
+    slug: 'royal-musk-eau-de-parfum',
+    name: 'Royal Musk',
+    description: 'A velvet layer of powdery pure white musk blended with elegant soft damask rose petals and subtle dry amber wood.',
+    price: 2290,
+    compareAtPrice: 2490,
+    category: 'perfume-attor',
+    images: [
+      'https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=800&q=80'
+    ],
+    stock: 18,
+    scentNotes: {
+      top: ['White Rose', 'Lily of the Valley'],
+      heart: ['Powdery Accord', 'Jasmine'],
+      base: ['White Musk', 'Dry Amber']
+    },
+    variants: [{ name: 'Size', options: ['50ml', '100ml'] }]
+  },
+  // 4. Oud Royale - Premium Perfume
+  {
+    id: 'prod-oud-royale',
+    slug: 'oud-royale-eau-de-parfum',
+    name: 'Oud Royale',
+    description: 'An opulent composition of rare Cambodian oud, Bulgarian rose, and warm golden amber. A majestic scent that commands presence and lingers with quiet authority.',
+    price: 2890,
+    compareAtPrice: 3290,
+    category: 'perfume-attor',
+    images: [
+      'https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80'
+    ],
+    stock: 15,
+    scentNotes: {
+      top: ['Spicy Nutmeg', 'Saffron'],
+      heart: ['Bulgarian Rose', 'Patchouli'],
+      base: ['Cambodian Oud', 'Golden Amber', 'Sandalwood']
+    },
+    variants: [{ name: 'Size', options: ['50ml', '100ml'] }]
+  },
+  // 5. Rose Damascena Attar - Concentrated Attar Oil
+  {
+    id: 'prod-rose-damascena',
+    slug: 'rose-damascena-attar',
+    name: 'Rose Damascena Attar',
+    description: 'Pure, alcohol-free concentrated oil attar crafted from hand-picked Damask rose petals. A deep, rich, and truly hypnotic rose formulation.',
+    price: 1590,
+    category: 'perfume-attor',
+    images: [
+      'https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=800&q=80'
+    ],
+    stock: 30,
+    scentNotes: {
+      top: ['Rose Buds', 'Geranium'],
+      heart: ['Damask Rose', 'Jasmine'],
+      base: ['Sandalwood Oil', 'Soft Musk']
+    },
+    variants: [{ name: 'Size', options: ['6ml Attar', '12ml Attar'] }]
+  },
+  // 6. Amber Imperial - Golden Amber Perfume
+  {
+    id: 'prod-amber-imperial',
+    slug: 'amber-imperial-perfume',
+    name: 'Amber Imperial',
+    description: 'A luxurious combination of warm vanilla orchid, sweet benzoin, and rich, deep imperial amber. Radiates a soothing warmth.',
+    price: 2690,
+    category: 'perfume-attor',
+    images: [
+      'https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=800&q=80'
+    ],
+    stock: 20,
+    scentNotes: {
+      top: ['Bergamot', 'Pink Pepper'],
+      heart: ['Vanilla Orchid', 'Benzoin'],
+      base: ['Imperial Amber', 'Labdanum', 'Patchouli']
+    },
+    variants: [{ name: 'Size', options: ['50ml', '100ml'] }]
+  },
+  // 7. Sandalwood Gold - Attar Oil Blend
+  {
+    id: 'prod-sandalwood-gold',
+    slug: 'sandalwood-gold-attar',
+    name: 'Sandalwood Gold',
+    description: 'Rich, creamy Mysore sandalwood blend in a concentrated oil base. Combined with hint of sweet vanilla and white cedarwood.',
+    price: 2390,
+    category: 'perfume-attor',
+    images: [
+      'https://images.unsplash.com/photo-1588405748373-122b2321bc31?auto=format&fit=crop&w=800&q=80'
+    ],
+    stock: 22,
+    scentNotes: {
+      top: ['Cardamom', 'Cedar Leaf'],
+      heart: ['Mysore Sandalwood', 'Orris Root'],
+      base: ['Creamy Vanilla', 'Amberwood', 'White Musk']
+    },
+    variants: [{ name: 'Size', options: ['6ml Attar', '12ml Attar'] }]
+  },
 
-// ── Women's Lifestyle: full niqab / fully-covered women ──
-const NQ1 = 19589145;  // studio niqab white full coverage
-const NQ2 = 19589147;  // studio niqab white variant
-const NQ3 = 19998643;  // close-up niqab eyes black veil
-const NQ4 = 7441243;   // dark abaya hanging on rack
-const NQ5 = 6347842;   // black draped fabric
-const NQ6 = 4614426;   // embroidered black fabric
+  // ==========================================
+  // WOMEN'S ATTARS (All 100% Model-free / Product-only)
+  // ==========================================
+  {
+    id: 'prod-hareem-sultan',
+    slug: 'hareem-al-sultan-attar',
+    name: 'Hareem Al Sultan Attar',
+    description: 'A premium, alcohol-free sweet floral concentrated attar oil with soft notes of red apples, patchouli, and fresh jasmine.',
+    price: 1890,
+    category: 'womens-wear',
+    images: [
+      'https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=800&q=80'
+    ],
+    stock: 15,
+    scentNotes: {
+      top: ['Red Apple', 'Mandarin'],
+      heart: ['Fresh Jasmine', 'Peony'],
+      base: ['Patchouli', 'Soft Musk', 'Vanilla orchid']
+    },
+    variants: [{ name: 'Size', options: ['6ml Attar', '12ml Attar'] }]
+  },
+  {
+    id: 'prod-bakhoor-nissa',
+    slug: 'bakhoor-al-nissa-perfume',
+    name: 'Bakhoor Al-Nissa',
+    description: 'An elegant woody-floral spray featuring white agarwood smoke, sweet rose damascena, and vanilla orchid.',
+    price: 2290,
+    category: 'womens-wear',
+    images: [
+      'https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=800&q=80'
+    ],
+    stock: 20,
+    scentNotes: {
+      top: ['Rose Damascena', 'Saffron'],
+      heart: ['Agarwood Smoke', 'White Orchid'],
+      base: ['Sweet Vanilla', 'Sandalwood']
+    },
+    variants: [{ name: 'Size', options: ['50ml', '100ml'] }]
+  },
+  {
+    id: 'prod-zahra-musk',
+    slug: 'zahra-musk-attar',
+    name: 'Zahra Musk Attar',
+    description: 'Pure concentrated white floral musk oil with hints of sweet vanilla, lily of the valley, and soft powder.',
+    price: 1590,
+    category: 'womens-wear',
+    images: [
+      'https://images.unsplash.com/photo-1588405748373-122b2321bc31?auto=format&fit=crop&w=800&q=80'
+    ],
+    stock: 18,
+    scentNotes: {
+      top: ['Lily of the Valley', 'Geranium'],
+      heart: ['Pure White Musk', 'Rose Water'],
+      base: ['Vanilla Orchid', 'Warm Powder']
+    },
+    variants: [{ name: 'Size', options: ['6ml Attar', '12ml Attar'] }]
+  },
+  {
+    id: 'prod-ward-rose',
+    slug: 'ward-rose-supreme',
+    name: 'Ward Rose Supreme',
+    description: 'An exquisite floral spray composed of hand-picked Taif rose oil, soft white musk, and golden sweet vanilla.',
+    price: 2490,
+    category: 'womens-wear',
+    images: [
+      'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80'
+    ],
+    stock: 22,
+    scentNotes: {
+      top: ['Taif Rose', 'Bergamot'],
+      heart: ['Damask Rose', 'Jasmine'],
+      base: ['White Musk', 'Vanilla Orchid', 'Cedarwood']
+    },
+    variants: [{ name: 'Size', options: ['50ml', '100ml'] }]
+  },
+  {
+    id: 'prod-amber-safi',
+    slug: 'amber-safi-attar',
+    name: 'Amber Safi',
+    description: 'Premium warm, sweet, alcohol-free concentrated amber oil attar. Very calming, rich, and stays on the skin for up to 36 hours.',
+    price: 1990,
+    category: 'womens-wear',
+    images: [
+      'https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=800&q=80'
+    ],
+    stock: 14,
+    scentNotes: {
+      top: ['Citrus Zest', 'Cardamom'],
+      heart: ['Warm Benzoin', 'Labdanum'],
+      base: ['Golden Amber', 'White Sandalwood', 'Vanilla Pod']
+    },
+    variants: [{ name: 'Size', options: ['6ml Attar', '12ml Attar'] }]
+  },
+  {
+    id: 'prod-lulu-oud',
+    slug: 'lulu-oud-perfume',
+    name: 'Lulu Oud',
+    description: 'A soft, sweet feminine oud formulation with Bulgarian rose water, white sandalwood, and sweet honeyed musk.',
+    price: 2790,
+    category: 'womens-wear',
+    images: [
+      'https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&w=800&q=80'
+    ],
+    stock: 12,
+    scentNotes: {
+      top: ['Bulgarian Rose Water', 'Mandarin'],
+      heart: ['Soft Cambodian Oud', 'Jasmine'],
+      base: ['White Sandalwood', 'Honeyed Musk', 'Amber']
+    },
+    variants: [{ name: 'Size', options: ['50ml', '100ml'] }]
+  },
 
-// ── Perfume/Attar: unique bottle-only product shots ──
-const P1  = 11705153;  // oud attar bottle dark
-const P2  = 11178436;  // amber perfume bottle
-const P3  = 30508098;  // luxury perfume vial dark
-const P4  = 30508099;  // perfume bottle moody
-const P5  = 30508100;  // attar roll-on bottle
-const P6  = 14402561;  // black perfume bottle moody lighting
-const P7  = 10413737;  // cologne bottle blue background
-const P8  = 8516167;   // Creed-style black bottle on gold
-const P9  = 14882100;  // perfume on knit fabric
-const P10 = 21008981;  // vial of perfume elegant
-const P11 = 8084464;   // Jo Malone style bottle green fabric
-const P12 = 27274783;  // elegant EDP bottle
-
-// ── Skincare: product-only bottle/jar shots (no people, no hands) ──
-const SK1 = 17783855;  // skincare bottle on water surface – product only
-const SK2 = 6621732;   // cosmetic cream jar product flat lay
-const SK3 = 5632335;   // skincare bottles arrangement on marble
-
-// ── Men's Lifestyle: garment flat-lays ──
-const M1 = 1181391;    // suit jacket
-const M2 = 7679471;    // dark fabric / trousers
-const M3 = 8476591;    // menswear flat lay
-const M4 = 996324;     // shirt flat lay
-
-// ── Accessories ──
-const A1 = 1132269;    // leather wallet
-const A2 = 12444596;   // leather bag
-const A3 = 30447366;   // accessories flat lay
-const A4 = 5828579;    // sunglasses / accessories
-const A5 = 4452702;    // belt leather
-
-export const products: Product[] = [
-  // ── p1–p3: Perfume & Attar ──
-  { id: 'p1', name: 'Oud Royale Eau de Parfum', slug: 'oud-royale-eau-de-parfum', description: 'An opulent composition of rare Cambodian oud, Bulgarian rose, and warm amber. A scent that commands presence and lingers with quiet authority.', category: 'perfume-attor', price: 12500, compareAtPrice: 15000, images: [px(P1), px(P6), px(P9)], variants: [{ name: 'Size', options: ['50ml', '100ml'] }], stock: 24, scentNotes: { top: ['Saffron', 'Bergamot'], heart: ['Bulgarian Rose', 'Cambodian Oud'], base: ['Amber', 'Sandalwood', 'Musk'] }, tags: ['bestseller', 'luxury', 'unisex'], createdAt: '2025-01-15T10:00:00Z', featured: true },
-  { id: 'p2', name: 'Noir Intense Attar', slug: 'noir-intense-attar', description: 'A concentrated oil-based fragrance blending dark oud, leather, and smoky vetiver. Alcohol-free and long-lasting.', category: 'perfume-attor', price: 8500, images: [px(P2), px(P7), px(P10)], variants: [{ name: 'Size', options: ['12ml', '24ml'] }], stock: 40, scentNotes: { top: ['Black Pepper', 'Cardamom'], heart: ['Dark Oud', 'Leather'], base: ['Vetiver', 'Patchouli'] }, tags: ['attar', 'alcohol-free', 'long-lasting'], createdAt: '2025-02-01T10:00:00Z', featured: true },
-  { id: 'p3', name: 'Rose Taif Eau de Parfum', slug: 'rose-taif-eau-de-parfum', description: 'A delicate yet radiant floral built around the legendary Taif rose, softened by white musk and gentle woods.', category: 'perfume-attor', price: 9800, images: [px(P3), px(P8), px(P11)], variants: [{ name: 'Size', options: ['50ml', '100ml'] }], stock: 18, scentNotes: { top: ['Pink Pepper', 'Lychee'], heart: ['Taif Rose', 'Peony'], base: ['White Musk', 'Cedar'] }, tags: ['floral', 'feminine', 'bestseller'], createdAt: '2025-01-20T10:00:00Z', featured: true },
-
-  // ── p4–p6: Men's Lifestyle ──
-  { id: 'p4', name: 'Cashmere Overcoat — Charcoal', slug: 'cashmere-overcoat-charcoal', description: 'A tailored overcoat in premium cashmere blend. Timeless silhouette with horn buttons and full Bemberg lining.', category: 'mens-lifestyle', price: 18500, compareAtPrice: 22000, images: [px(M1), px(M2), px(M3)], variants: [{ name: 'Size', options: ['S', 'M', 'L', 'XL'] }, { name: 'Color', options: ['Charcoal', 'Camel'] }], stock: 12, tags: ['outerwear', 'winter', 'premium'], createdAt: '2025-01-10T10:00:00Z', featured: true },
-  { id: 'p5', name: 'Linen Shirt — Ivory', slug: 'linen-shirt-ivory', description: 'Breathable European linen with a relaxed yet refined cut. Mother-of-pearl buttons and a soft pre-washed finish.', category: 'mens-lifestyle', price: 4200, images: [px(M4), px(M2), px(M3)], variants: [{ name: 'Size', options: ['S', 'M', 'L', 'XL', 'XXL'] }], stock: 60, tags: ['essentials', 'summer', 'linen'], createdAt: '2025-02-15T10:00:00Z', featured: false },
-  { id: 'p6', name: 'Merino Crew Sweater — Taupe', slug: 'merino-crew-sweater-taupe', description: 'Fine-gauge extra-fine merino wool with a smooth hand and elegant drape. Perfect for layering through the seasons.', category: 'mens-lifestyle', price: 5800, images: [px(M2), px(M1), px(M3)], variants: [{ name: 'Size', options: ['S', 'M', 'L', 'XL'] }], stock: 35, tags: ['knitwear', 'essentials'], createdAt: '2025-01-25T10:00:00Z', featured: false },
-
-  // ── p7–p9: Women's Lifestyle ──
-  { id: 'p7', name: 'Silk Abaya — Champagne', slug: 'silk-slip-dress-champagne', description: 'A fluid full-length abaya in pure mulberry silk. Modest and elegant with delicate embroidery at the cuffs.', category: 'womens-lifestyle', price: 12500, compareAtPrice: 15000, images: [px(NQ1), px(NQ2), px(NQ3)], variants: [{ name: 'Size', options: ['XS', 'S', 'M', 'L'] }], stock: 15, tags: ['silk', 'abaya', 'bestseller'], createdAt: '2025-02-05T10:00:00Z', featured: true },
-  { id: 'p8', name: 'Wool Wrap Abaya — Camel', slug: 'wool-wrap-coat-camel', description: 'A double-faced wool abaya with a self-tie belt. Sculptural collar and full-length modest silhouette.', category: 'womens-lifestyle', price: 16500, images: [px(NQ4), px(NQ5), px(NQ1)], variants: [{ name: 'Size', options: ['XS', 'S', 'M', 'L'] }], stock: 10, tags: ['outerwear', 'winter', 'premium'], createdAt: '2025-01-12T10:00:00Z', featured: true },
-  { id: 'p9', name: 'Cashmere Modest Cardigan — Blush', slug: 'cashmere-cardigan-blush', description: 'A longline open-front cardigan in pure cashmere. Cloud-soft texture with full coverage and elegant drape.', category: 'womens-lifestyle', price: 8900, images: [px(NQ6), px(NQ1), px(NQ2)], variants: [{ name: 'Size', options: ['XS', 'S', 'M', 'L'] }], stock: 22, tags: ['cashmere', 'knitwear'], createdAt: '2025-02-10T10:00:00Z', featured: false },
-
-  // ── p10–p12: Skincare ──
-  { id: 'p10', name: 'Radiance Facial Serum', slug: 'radiance-facial-serum', description: 'A lightweight serum with niacinamide, hyaluronic acid, and vitamin C. Brightens, hydrates, and evens skin tone.', category: 'skincare', price: 3200, images: [px(SK1), px(SK2), px(SK3)], variants: [{ name: 'Size', options: ['30ml', '50ml'] }], stock: 80, skinType: 'All skin types', tags: ['bestseller', 'vitamin-c', 'brightening'], createdAt: '2025-01-18T10:00:00Z', featured: true },
-  { id: 'p11', name: 'Hydrating Night Cream', slug: 'hydrating-night-cream', description: 'A rich overnight treatment with ceramides, peptides, and shea butter. Restores moisture and elasticity.', category: 'skincare', price: 2800, images: [px(SK2), px(SK3), px(SK1)], variants: [{ name: 'Size', options: ['50ml'] }], stock: 65, skinType: 'Dry to normal', tags: ['night', 'hydrating', 'ceramides'], createdAt: '2025-01-22T10:00:00Z', featured: false },
-  { id: 'p12', name: 'Gentle Cleansing Foam', slug: 'gentle-cleansing-foam', description: 'A pH-balanced foaming cleanser with green tea extract and glycerin. Removes impurities without stripping.', category: 'skincare', price: 1800, images: [px(SK3), px(SK1), px(SK2)], variants: [{ name: 'Size', options: ['150ml'] }], stock: 100, skinType: 'All skin types', tags: ['cleanser', 'essentials', 'gentle'], createdAt: '2025-02-12T10:00:00Z', featured: false },
-
-  // ── p13–p15: Accessories ──
-  { id: 'p13', name: 'Leather Card Holder — Tan', slug: 'leather-card-holder-tan', description: 'A slim card holder in full-grain Italian leather. Four card slots and a center pocket. Ages beautifully.', category: 'accessories', price: 2200, images: [px(A1), px(A2), px(M2)], variants: [{ name: 'Color', options: ['Tan', 'Black', 'Cognac'] }], stock: 50, tags: ['leather', 'gift', 'essentials'], createdAt: '2025-01-28T10:00:00Z', featured: true },
-  { id: 'p14', name: 'Silk Scarf — Gold Paisley', slug: 'silk-scarf-gold-paisley', description: 'A hand-rolled silk twill scarf with an intricate gold and cream paisley motif. 90cm x 90cm.', category: 'accessories', price: 4800, images: [px(A3), px(A1), px(A4)], variants: [{ name: 'Color', options: ['Gold', 'Ivory'] }], stock: 28, tags: ['silk', 'gift', 'bestseller'], createdAt: '2025-02-08T10:00:00Z', featured: true },
-  { id: 'p15', name: 'Leather Belt — Cognac', slug: 'leather-belt-cognac', description: 'A 35mm full-grain leather belt with a brushed brass buckle. Handcrafted and stitched in Italy.', category: 'accessories', price: 3500, images: [px(A5), px(A4), px(A1)], variants: [{ name: 'Size', options: ['32', '34', '36', '38', '40'] }], stock: 40, tags: ['leather', 'essentials'], createdAt: '2025-01-30T10:00:00Z', featured: false },
-
-  // ── p16: Perfume ──
-  { id: 'p16', name: 'Amber Velvet Eau de Parfum', slug: 'amber-velvet-eau-de-parfum', description: 'A warm, enveloping scent of amber, vanilla orchid, and tonka bean. Soft, sensual, and deeply comforting.', category: 'perfume-attor', price: 11000, images: [px(P4), px(P12), px(P5)], variants: [{ name: 'Size', options: ['50ml', '100ml'] }], stock: 20, scentNotes: { top: ['Bergamot', 'Cinnamon'], heart: ['Vanilla Orchid', 'Amber'], base: ['Tonka Bean', 'Benzoin', 'Sandalwood'] }, tags: ['warm', 'amber', 'unisex'], createdAt: '2025-02-18T10:00:00Z', featured: false },
-
-  // ── p17–p18: Men's + Women's ──
-  { id: 'p17', name: 'Tailored Wool Trousers — Navy', slug: 'tailored-wool-trousers-navy', description: 'A flat-front trouser in Italian wool. Clean lines, a comfortable mid-rise, and a refined taper.', category: 'mens-lifestyle', price: 6500, images: [px(M3), px(M1), px(M2)], variants: [{ name: 'Size', options: ['30', '32', '34', '36', '38'] }], stock: 30, tags: ['tailoring', 'essentials', 'wool'], createdAt: '2025-02-20T10:00:00Z', featured: false },
-  { id: 'p18', name: 'Pleated Modest Skirt — Stone', slug: 'pleated-midi-skirt-stone', description: 'A high-waisted pleated full-length skirt in fluid technical crepe. Effortless modest movement.', category: 'womens-lifestyle', price: 5200, images: [px(NQ3), px(NQ4), px(NQ5)], variants: [{ name: 'Size', options: ['XS', 'S', 'M', 'L'] }], stock: 25, tags: ['essentials', 'modest'], createdAt: '2025-02-22T10:00:00Z', featured: false },
-
-  // ── p19–p20: Skincare + Accessories ──
-  { id: 'p19', name: 'Vitamin C Brightening Mask', slug: 'vitamin-c-brightening-mask', description: 'A clay-and-cream mask with vitamin C, kaolin, and turmeric. Brightens and refines in 10 minutes.', category: 'skincare', price: 2400, images: [px(SK3), px(SK2), px(SK1)], variants: [{ name: 'Size', options: ['75ml'] }], stock: 55, skinType: 'Dull and uneven', tags: ['mask', 'brightening', 'vitamin-c'], createdAt: '2025-02-25T10:00:00Z', featured: false },
-  { id: 'p20', name: 'Sunglasses — Tortoise', slug: 'sunglasses-tortoise', description: 'A classic round-frame sunglass in hand-polished acetate. UV400 lenses with a keyhole bridge.', category: 'accessories', price: 5500, images: [px(A4), px(A3), px(A1)], variants: [{ name: 'Color', options: ['Tortoise', 'Black'] }], stock: 18, tags: ['eyewear', 'gift'], createdAt: '2025-02-28T10:00:00Z', featured: false },
-  { id: 'p21', name: 'White Musk Attar', slug: 'white-musk-attar', description: 'A clean, skin-like attar of white musk, soft florals, and a whisper of vanilla. Alcohol-free.', category: 'perfume-attor', price: 6500, images: [px(P5), px(P11), px(P6)], variants: [{ name: 'Size', options: ['12ml', '24ml'] }], stock: 45, scentNotes: { top: ['Aldehydes'], heart: ['White Musk', 'Jasmine'], base: ['Vanilla', 'Sandalwood'] }, tags: ['attar', 'alcohol-free', 'clean'], createdAt: '2025-03-01T10:00:00Z', featured: false },
-  { id: 'p22', name: 'Oxford Shirt — White', slug: 'oxford-shirt-white', description: 'A classic Oxford cotton shirt with a button-down collar. Woven from premium long-staple cotton.', category: 'mens-lifestyle', price: 3200, images: [px(M4), px(M1), px(M2)], variants: [{ name: 'Size', options: ['S', 'M', 'L', 'XL', 'XXL'] }], stock: 70, tags: ['essentials', 'oxford', 'cotton'], createdAt: '2025-03-03T10:00:00Z', featured: false },
-
-  // ── p23–p37: Perfume & Attar (all unique bottle shots) ──
-  { id: 'p23', name: 'Saffron Oud 50ml', slug: 'saffron-oud-50ml', description: 'Kashmiri saffron meets aged Hindi oud — warm, spiced and deeply sensual.', category: 'perfume-attor', price: 19500, images: [px(P1), px(P7), px(P3)], variants: [{ name: 'Size', options: ['50ml', '100ml'] }], stock: 18, scentNotes: { top: ['Saffron', 'Cardamom'], heart: ['Hindi Oud', 'Rose'], base: ['Amber', 'Musk'] }, tags: ['oud', 'saffron', 'luxury'], createdAt: '2025-03-05T10:00:00Z', featured: true },
-  { id: 'p24', name: 'Velvet Rose Attar', slug: 'velvet-rose-attar', description: 'A concentrated rose attar from Taif, layered with soft musks. Alcohol-free and skin-safe.', category: 'perfume-attor', price: 9500, images: [px(P8), px(P2), px(P10)], variants: [{ name: 'Size', options: ['12ml', '24ml'] }], stock: 30, scentNotes: { top: ['Rose Petals'], heart: ['Taif Rose'], base: ['White Musk', 'Sandalwood'] }, tags: ['attar', 'rose', 'alcohol-free'], createdAt: '2025-03-06T10:00:00Z', featured: false },
-  { id: 'p25', name: 'Smoky Oud 100ml', slug: 'smoky-oud-100ml', description: 'Dark, resinous oud with tobacco leaf and vetiver. Bold and commanding.', category: 'perfume-attor', price: 22000, compareAtPrice: 26000, images: [px(P6), px(P1), px(P11)], variants: [{ name: 'Size', options: ['50ml', '100ml'] }], stock: 12, scentNotes: { top: ['Black Pepper'], heart: ['Smoked Oud', 'Tobacco'], base: ['Vetiver', 'Labdanum'] }, tags: ['oud', 'smoky', 'bold'], createdAt: '2025-03-07T10:00:00Z', featured: true },
-  { id: 'p26', name: 'Citrus Cedar 75ml', slug: 'citrus-cedar-75ml', description: 'A fresh, woody scent of bergamot, lemon and Atlas cedar. Light yet lasting.', category: 'perfume-attor', price: 8800, images: [px(P9), px(P4), px(P12)], variants: [{ name: 'Size', options: ['75ml'] }], stock: 45, scentNotes: { top: ['Bergamot', 'Lemon'], heart: ['Atlas Cedar'], base: ['Musk', 'Oakmoss'] }, tags: ['fresh', 'woody', 'unisex'], createdAt: '2025-03-08T10:00:00Z', featured: false },
-  { id: 'p27', name: 'Oud Malaki 50ml', slug: 'oud-malaki-50ml', description: 'A royal blend of Burmese oud, labdanum and Damascene rose — fit for kings.', category: 'perfume-attor', price: 32000, images: [px(P2), px(P8), px(P5)], variants: [{ name: 'Size', options: ['50ml'] }], stock: 8, scentNotes: { top: ['Saffron'], heart: ['Damascene Rose', 'Burmese Oud'], base: ['Labdanum', 'Amber', 'Sandalwood'] }, tags: ['oud', 'luxury', 'royal'], createdAt: '2025-03-09T10:00:00Z', featured: true },
-  { id: 'p28', name: 'Neroli & Musk 100ml', slug: 'neroli-musk-100ml', description: 'Uplifting neroli blossom softened by skin-like musks and a hint of amber.', category: 'perfume-attor', price: 11500, images: [px(P10), px(P3), px(P7)], variants: [{ name: 'Size', options: ['50ml', '100ml'] }], stock: 35, scentNotes: { top: ['Neroli', 'Petitgrain'], heart: ['Orange Blossom'], base: ['Ambrette Musk', 'Amber'] }, tags: ['floral', 'fresh', 'unisex'], createdAt: '2025-03-10T10:00:00Z', featured: false },
-  { id: 'p29', name: 'Bakhoor Nights Attar', slug: 'bakhoor-nights-attar', description: 'Inspired by the warmth of burning bakhoor — oud, frankincense and rose on a bed of amber.', category: 'perfume-attor', price: 14000, images: [px(P11), px(P6), px(P2)], variants: [{ name: 'Size', options: ['12ml', '24ml'] }], stock: 22, scentNotes: { top: ['Frankincense'], heart: ['Oud', 'Rose'], base: ['Amber', 'Benzoin'] }, tags: ['attar', 'bakhoor', 'oud'], createdAt: '2025-03-11T10:00:00Z', featured: false },
-  { id: 'p30', name: 'Aqua Nobles 100ml', slug: 'aqua-nobles-100ml', description: 'A crisp aquatic fragrance with sea salt, ambergris and driftwood.', category: 'perfume-attor', price: 13500, images: [px(P12), px(P9), px(P1)], variants: [{ name: 'Size', options: ['100ml'] }], stock: 28, scentNotes: { top: ['Sea Salt', 'Grapefruit'], heart: ['Ambergris', 'Driftwood'], base: ['Musk', 'Oakmoss'] }, tags: ['aquatic', 'fresh', 'unisex'], createdAt: '2025-03-12T10:00:00Z', featured: false },
-  { id: 'p31', name: 'Oud Safwa 50ml', slug: 'oud-safwa-50ml', description: 'Pure distilled oud from Malaysia, clean and translucent with a creamy wood dry-down.', category: 'perfume-attor', price: 28000, images: [px(P3), px(P12), px(P8)], variants: [{ name: 'Size', options: ['50ml'] }], stock: 10, scentNotes: { top: ['Green'], heart: ['Malaysian Oud'], base: ['Cream', 'Sandalwood'] }, tags: ['oud', 'pure', 'luxury'], createdAt: '2025-03-13T10:00:00Z', featured: false },
-  { id: 'p32', name: 'Jasmine Absolute 75ml', slug: 'jasmine-absolute-75ml', description: 'Heady Grasse jasmine absolute over warm vanilla and soft musk.', category: 'perfume-attor', price: 16500, images: [px(P7), px(P11), px(P4)], variants: [{ name: 'Size', options: ['75ml'] }], stock: 20, scentNotes: { top: ['Green Leaf'], heart: ['Jasmine Absolute'], base: ['Vanilla', 'Musk'] }, tags: ['floral', 'jasmine', 'feminine'], createdAt: '2025-03-14T10:00:00Z', featured: false },
-  { id: 'p33', name: 'Royal Blend Attar Gift Set', slug: 'royal-blend-attar-gift-set', description: 'A curated set of three signature attars in a handcrafted wooden box.', category: 'perfume-attor', price: 38000, compareAtPrice: 45000, images: [px(P5), px(P10), px(P6)], variants: [], stock: 5, scentNotes: { top: ['Mixed'], heart: ['Oud', 'Rose', 'Musk'], base: ['Amber', 'Sandalwood'] }, tags: ['gift', 'set', 'luxury'], createdAt: '2025-03-15T10:00:00Z', featured: true },
-  { id: 'p34', name: 'Patchouli Oud 100ml', slug: 'patchouli-oud-100ml', description: 'Indonesian patchouli and Cambodian oud — earthy, rich and deeply grounding.', category: 'perfume-attor', price: 17500, images: [px(P4), px(P1), px(P9)], variants: [{ name: 'Size', options: ['50ml', '100ml'] }], stock: 16, scentNotes: { top: ['Cardamom'], heart: ['Patchouli', 'Cambodian Oud'], base: ['Musk', 'Cedar'] }, tags: ['oud', 'earthy', 'unisex'], createdAt: '2025-03-16T10:00:00Z', featured: false },
-  { id: 'p35', name: 'Vanilla Orchid 50ml', slug: 'vanilla-orchid-50ml', description: 'Lush Madagascar vanilla and white orchid, warm and inviting.', category: 'perfume-attor', price: 12000, images: [px(P9), px(P5), px(P2)], variants: [{ name: 'Size', options: ['50ml'] }], stock: 32, scentNotes: { top: ['Bergamot'], heart: ['White Orchid'], base: ['Vanilla', 'Tonka Bean'] }, tags: ['sweet', 'floral', 'feminine'], createdAt: '2025-03-17T10:00:00Z', featured: false },
-  { id: 'p36', name: 'Incense Trail 75ml', slug: 'incense-trail-75ml', description: 'Sacred frankincense and myrrh resin, balanced with warm cedar and cistus.', category: 'perfume-attor', price: 15000, images: [px(P10), px(P8), px(P3)], variants: [{ name: 'Size', options: ['75ml'] }], stock: 14, scentNotes: { top: ['Cistus', 'Pepper'], heart: ['Frankincense', 'Myrrh'], base: ['Cedar', 'Oud'] }, tags: ['incense', 'resinous', 'unisex'], createdAt: '2025-03-18T10:00:00Z', featured: false },
-  { id: 'p37', name: 'Mukhallat Al Qasvani 100ml', slug: 'mukhallat-al-qasvani-100ml', description: 'Our signature blend — oud, rose, saffron and amber — the essence of QASVANI in a bottle.', category: 'perfume-attor', price: 42000, compareAtPrice: 48000, images: [px(P12), px(P6), px(P1)], variants: [{ name: 'Size', options: ['50ml', '100ml'] }], stock: 20, scentNotes: { top: ['Saffron', 'Bergamot'], heart: ['Damascene Rose', 'Oud'], base: ['Amber', 'Musk', 'Sandalwood'] }, tags: ['signature', 'luxury', 'oud'], createdAt: '2025-03-19T10:00:00Z', featured: true },
-
-  // ── p38–p52: Men's Lifestyle ──
-  { id: 'p38', name: 'Double-Breasted Suit — Midnight', slug: 'double-breasted-suit-midnight', description: 'A structured double-breasted suit in Italian super 130s wool. Peak lapels and a slim silhouette.', category: 'mens-lifestyle', price: 32000, compareAtPrice: 38000, images: [px(M1), px(M3), px(M2)], variants: [{ name: 'Size', options: ['S', 'M', 'L', 'XL'] }, { name: 'Color', options: ['Midnight Blue', 'Charcoal'] }], stock: 10, tags: ['suit', 'formal', 'premium'], createdAt: '2025-03-05T10:00:00Z', featured: true },
-  { id: 'p39', name: 'Suede Chelsea Boots — Tan', slug: 'suede-chelsea-boots-tan', description: 'Soft suede upper with elastic side gussets. Leather sole and stacked heel.', category: 'mens-lifestyle', price: 9800, images: [px(M2), px(M4), px(M1)], variants: [{ name: 'Size', options: ['40', '41', '42', '43', '44', '45'] }], stock: 20, tags: ['boots', 'footwear', 'suede'], createdAt: '2025-03-06T10:00:00Z', featured: false },
-  { id: 'p40', name: 'Piqué Cotton Polo — Navy', slug: 'pique-cotton-polo-navy', description: 'Fine piqué cotton with a two-button placket and ribbed collar. Classic proportions.', category: 'mens-lifestyle', price: 3800, images: [px(M4), px(M3), px(M2)], variants: [{ name: 'Size', options: ['S', 'M', 'L', 'XL', 'XXL'] }], stock: 60, tags: ['polo', 'essentials', 'cotton'], createdAt: '2025-03-07T10:00:00Z', featured: false },
-  { id: 'p41', name: 'Leather Bomber Jacket', slug: 'leather-bomber-jacket', description: 'Full-grain lambskin bomber with a satin lining and ribbed cuffs. Ageless cool.', category: 'mens-lifestyle', price: 26000, images: [px(M3), px(M2), px(M1)], variants: [{ name: 'Size', options: ['S', 'M', 'L', 'XL'] }], stock: 8, tags: ['leather', 'jacket', 'premium'], createdAt: '2025-03-08T10:00:00Z', featured: true },
-  { id: 'p42', name: 'Slim Chino — Stone', slug: 'slim-chino-stone', description: 'Garment-washed cotton chino with a slim taper. Versatile and comfortable.', category: 'mens-lifestyle', price: 4500, images: [px(M2), px(M3), px(M4)], variants: [{ name: 'Size', options: ['30', '32', '34', '36', '38'] }], stock: 50, tags: ['chino', 'essentials', 'casual'], createdAt: '2025-03-09T10:00:00Z', featured: false },
-  { id: 'p43', name: 'Cashmere Turtleneck — Oatmeal', slug: 'cashmere-turtleneck-oatmeal', description: '2-ply cashmere ribbed turtleneck. Supremely soft and a wardrobe pillar.', category: 'mens-lifestyle', price: 14500, images: [px(M1), px(M4), px(M3)], variants: [{ name: 'Size', options: ['S', 'M', 'L', 'XL'] }], stock: 18, tags: ['cashmere', 'knitwear', 'winter'], createdAt: '2025-03-10T10:00:00Z', featured: false },
-  { id: 'p44', name: 'Wool Flannel Shirt — Rust', slug: 'wool-flannel-shirt-rust', description: 'Italian wool flannel with a relaxed fit and a soft-brushed finish.', category: 'mens-lifestyle', price: 5200, images: [px(M4), px(M1), px(M3)], variants: [{ name: 'Size', options: ['S', 'M', 'L', 'XL', 'XXL'] }], stock: 35, tags: ['shirt', 'flannel', 'winter'], createdAt: '2025-03-11T10:00:00Z', featured: false },
-  { id: 'p45', name: 'Formal Dress Shoes — Black', slug: 'formal-dress-shoes-black', description: 'Goodyear-welted Derby in polished calfskin. The cornerstone of a formal wardrobe.', category: 'mens-lifestyle', price: 14000, images: [px(M2), px(M1), px(M4)], variants: [{ name: 'Size', options: ['40', '41', '42', '43', '44', '45'] }], stock: 14, tags: ['shoes', 'formal', 'leather'], createdAt: '2025-03-12T10:00:00Z', featured: false },
-  { id: 'p46', name: 'Linen Drawstring Trousers', slug: 'linen-drawstring-trousers', description: 'Relaxed-fit Italian linen trousers with an elasticated drawstring waist.', category: 'mens-lifestyle', price: 5800, images: [px(M3), px(M4), px(M2)], variants: [{ name: 'Size', options: ['S', 'M', 'L', 'XL'] }], stock: 40, tags: ['linen', 'summer', 'casual'], createdAt: '2025-03-13T10:00:00Z', featured: false },
-  { id: 'p47', name: 'Quilted Gilet — Forest', slug: 'quilted-gilet-forest', description: 'Lightweight quilted gilet with a down fill. Water-resistant shell and clean lines.', category: 'mens-lifestyle', price: 8500, images: [px(M1), px(M2), px(M3)], variants: [{ name: 'Size', options: ['S', 'M', 'L', 'XL'] }], stock: 22, tags: ['gilet', 'outerwear', 'down'], createdAt: '2025-03-14T10:00:00Z', featured: false },
-  { id: 'p48', name: 'Merino Polo Neck — Slate', slug: 'merino-polo-neck-slate', description: 'Fine-gauge merino polo neck with ribbed detailing. Slim and refined.', category: 'mens-lifestyle', price: 6200, images: [px(M4), px(M2), px(M1)], variants: [{ name: 'Size', options: ['S', 'M', 'L', 'XL'] }], stock: 28, tags: ['merino', 'knitwear', 'essentials'], createdAt: '2025-03-15T10:00:00Z', featured: false },
-  { id: 'p49', name: 'Tailored Blazer — Camel', slug: 'tailored-blazer-camel', description: 'Single-breasted camel wool blazer. Notch lapels, patch pockets and a half canvas.', category: 'mens-lifestyle', price: 21000, compareAtPrice: 25000, images: [px(M3), px(M1), px(M4)], variants: [{ name: 'Size', options: ['S', 'M', 'L', 'XL'] }], stock: 12, tags: ['blazer', 'tailoring', 'wool'], createdAt: '2025-03-16T10:00:00Z', featured: true },
-  { id: 'p50', name: 'Cotton Crew Tee — White', slug: 'cotton-crew-tee-white', description: 'Heavyweight pima cotton crew neck. Dense, drape-free fabric with a clean finish.', category: 'mens-lifestyle', price: 2200, images: [px(M4), px(M3), px(M2)], variants: [{ name: 'Size', options: ['S', 'M', 'L', 'XL', 'XXL'] }], stock: 100, tags: ['tee', 'essentials', 'cotton'], createdAt: '2025-03-17T10:00:00Z', featured: false },
-  { id: 'p51', name: 'Trench Coat — Beige', slug: 'trench-coat-beige', description: 'Classic cotton gabardine trench with a belted waist and storm flap. Timeless.', category: 'mens-lifestyle', price: 28000, images: [px(M3), px(M2), px(M4)], variants: [{ name: 'Size', options: ['S', 'M', 'L', 'XL'] }], stock: 9, tags: ['outerwear', 'trench', 'classic'], createdAt: '2025-03-18T10:00:00Z', featured: false },
-  { id: 'p52', name: 'Denim Selvedge Jeans — Indigo', slug: 'denim-selvedge-jeans-indigo', description: '14oz Japanese selvedge denim in a straight cut. Raw, unsanforized and built to age.', category: 'mens-lifestyle', price: 11500, images: [px(M2), px(M4), px(M3)], variants: [{ name: 'Size', options: ['30', '32', '34', '36', '38'] }], stock: 20, tags: ['denim', 'japanese', 'premium'], createdAt: '2025-03-19T10:00:00Z', featured: false },
-
-  // ── p53–p67: Women's Lifestyle (all niqab/fully-covered images) ──
-  { id: 'p53', name: 'Embroidered Abaya — Black', slug: 'embroidered-abaya-black', description: 'A full-length abaya in matte crepe with hand-embroidered floral cuffs.', category: 'womens-lifestyle', price: 18500, compareAtPrice: 22000, images: [px(NQ1), px(NQ3), px(NQ2)], variants: [{ name: 'Size', options: ['XS', 'S', 'M', 'L', 'XL'] }], stock: 15, tags: ['abaya', 'embroidery', 'bestseller'], createdAt: '2025-03-05T10:00:00Z', featured: true },
-  { id: 'p54', name: 'Open-Front Abaya — Ivory', slug: 'open-front-abaya-ivory', description: 'A flowy open-front abaya in soft georgette. Worn over a matching inner dress.', category: 'womens-lifestyle', price: 14000, images: [px(NQ2), px(NQ1), px(NQ4)], variants: [{ name: 'Size', options: ['XS', 'S', 'M', 'L', 'XL'] }], stock: 20, tags: ['abaya', 'ivory', 'modest'], createdAt: '2025-03-06T10:00:00Z', featured: false },
-  { id: 'p55', name: 'Luxury Prayer Set', slug: 'luxury-prayer-set', description: 'A premium prayer dress and matching mukena in soft cotton-silk blend with delicate lace trim.', category: 'womens-lifestyle', price: 8500, images: [px(NQ6), px(NQ3), px(NQ1)], variants: [{ name: 'Color', options: ['White', 'Ivory', 'Sage'] }], stock: 30, tags: ['prayer', 'modest', 'gift'], createdAt: '2025-03-07T10:00:00Z', featured: false },
-  { id: 'p56', name: 'Kaftan Dress — Emerald', slug: 'kaftan-dress-emerald', description: 'A flowing kaftan in hand-dyed silk with gold thread embroidery at the neckline.', category: 'womens-lifestyle', price: 22000, images: [px(NQ1), px(NQ5), px(NQ3)], variants: [{ name: 'Size', options: ['S', 'M', 'L', 'XL'] }], stock: 12, tags: ['kaftan', 'silk', 'festive'], createdAt: '2025-03-08T10:00:00Z', featured: true },
-  { id: 'p57', name: 'Oversized Linen Blazer — Cream', slug: 'oversized-linen-blazer-cream', description: 'An oversized linen blazer in cream, perfect over a modest dress or wide trousers.', category: 'womens-lifestyle', price: 11500, images: [px(NQ4), px(NQ2), px(NQ6)], variants: [{ name: 'Size', options: ['XS', 'S', 'M', 'L'] }], stock: 18, tags: ['blazer', 'linen', 'modest'], createdAt: '2025-03-09T10:00:00Z', featured: false },
-  { id: 'p58', name: 'Wide-Leg Trousers — Camel', slug: 'wide-leg-trousers-camel', description: 'High-waisted wide-leg trousers in Italian wool crepe. Elegant full-coverage silhouette.', category: 'womens-lifestyle', price: 9800, images: [px(NQ5), px(NQ1), px(NQ3)], variants: [{ name: 'Size', options: ['XS', 'S', 'M', 'L'] }], stock: 25, tags: ['trousers', 'wide-leg', 'modest'], createdAt: '2025-03-10T10:00:00Z', featured: false },
-  { id: 'p59', name: 'Turtleneck Knit Dress — Oatmeal', slug: 'turtleneck-knit-dress-oatmeal', description: 'A longline ribbed turtleneck dress in fine merino. Full coverage and effortlessly chic.', category: 'womens-lifestyle', price: 13500, images: [px(NQ6), px(NQ2), px(NQ4)], variants: [{ name: 'Size', options: ['XS', 'S', 'M', 'L'] }], stock: 16, tags: ['knit', 'dress', 'winter'], createdAt: '2025-03-11T10:00:00Z', featured: false },
-  { id: 'p60', name: 'Modest Swim Burkini — Navy', slug: 'modest-swim-burkini-navy', description: 'UPF 50+ modest swimwear in quick-dry performance fabric. Comfortable and stylish.', category: 'womens-lifestyle', price: 7200, images: [px(NQ1), px(NQ4), px(NQ6)], variants: [{ name: 'Size', options: ['XS', 'S', 'M', 'L', 'XL'] }], stock: 22, tags: ['swim', 'modest', 'burkini'], createdAt: '2025-03-12T10:00:00Z', featured: false },
-  { id: 'p61', name: 'Chiffon Maxi Dress — Blush', slug: 'chiffon-maxi-dress-blush', description: 'Soft chiffon maxi dress with long sleeves and a high neckline. Light and feminine.', category: 'womens-lifestyle', price: 10500, images: [px(NQ3), px(NQ5), px(NQ1)], variants: [{ name: 'Size', options: ['XS', 'S', 'M', 'L'] }], stock: 20, tags: ['chiffon', 'maxi', 'modest'], createdAt: '2025-03-13T10:00:00Z', featured: false },
-  { id: 'p62', name: 'Satin Abaya — Rose Gold', slug: 'satin-abaya-rose-gold', description: 'Lustrous satin abaya with shimmering rose gold threads. Ideal for formal occasions.', category: 'womens-lifestyle', price: 25000, compareAtPrice: 30000, images: [px(NQ2), px(NQ6), px(NQ4)], variants: [{ name: 'Size', options: ['XS', 'S', 'M', 'L', 'XL'] }], stock: 8, tags: ['abaya', 'satin', 'formal'], createdAt: '2025-03-14T10:00:00Z', featured: true },
-  { id: 'p63', name: 'Premium Hijab Set — 3 Pack', slug: 'premium-hijab-set-3-pack', description: 'Three premium jersey hijabs in neutral tones. Non-slip, breathable and easy to style.', category: 'womens-lifestyle', price: 4500, images: [px(NQ4), px(NQ6), px(NQ2)], variants: [{ name: 'Color', options: ['Nude/Black/Grey', 'Blush/Sage/Cream'] }], stock: 50, tags: ['hijab', 'essentials', 'set'], createdAt: '2025-03-15T10:00:00Z', featured: false },
-  { id: 'p64', name: 'Modest Active Leggings', slug: 'modest-active-leggings', description: 'High-waisted full-length active leggings in 4-way stretch. Squat-proof and UPF 40+.', category: 'womens-lifestyle', price: 5500, images: [px(NQ5), px(NQ3), px(NQ1)], variants: [{ name: 'Size', options: ['XS', 'S', 'M', 'L', 'XL'] }], stock: 40, tags: ['active', 'leggings', 'modest'], createdAt: '2025-03-16T10:00:00Z', featured: false },
-  { id: 'p65', name: 'Lace Overlay Abaya — White', slug: 'lace-overlay-abaya-white', description: 'An elegant white abaya with a French lace overlay at the hem and sleeves.', category: 'womens-lifestyle', price: 19500, images: [px(NQ2), px(NQ5), px(NQ3)], variants: [{ name: 'Size', options: ['XS', 'S', 'M', 'L', 'XL'] }], stock: 10, tags: ['abaya', 'lace', 'elegant'], createdAt: '2025-03-17T10:00:00Z', featured: false },
-  { id: 'p66', name: 'Cashmere Long Cardigan — Sage', slug: 'cashmere-long-cardigan-sage', description: 'A longline open-front cashmere cardigan in sage green. Lightweight and versatile.', category: 'womens-lifestyle', price: 16500, images: [px(NQ6), px(NQ4), px(NQ1)], variants: [{ name: 'Size', options: ['XS', 'S', 'M', 'L'] }], stock: 14, tags: ['cashmere', 'cardigan', 'modest'], createdAt: '2025-03-18T10:00:00Z', featured: false },
-  { id: 'p67', name: 'Wool Maxi Coat — Charcoal', slug: 'wool-maxi-coat-charcoal', description: 'A floor-length double-faced wool coat in charcoal. Bold, warm and modest.', category: 'womens-lifestyle', price: 34000, compareAtPrice: 40000, images: [px(NQ3), px(NQ1), px(NQ6)], variants: [{ name: 'Size', options: ['XS', 'S', 'M', 'L'] }], stock: 7, tags: ['coat', 'wool', 'premium'], createdAt: '2025-03-19T10:00:00Z', featured: true },
-
-  // ── p68–p82: Skincare ──
-  { id: 'p68', name: 'Retinol Renewal Serum', slug: 'retinol-renewal-serum', description: 'Encapsulated retinol with peptides and niacinamide. Resurfaces and firms overnight.', category: 'skincare', price: 4800, images: [px(SK1), px(SK3), px(SK2)], variants: [{ name: 'Size', options: ['30ml'] }], stock: 45, skinType: 'Normal to oily', tags: ['retinol', 'anti-aging', 'firming'], createdAt: '2025-03-05T10:00:00Z', featured: true },
-  { id: 'p69', name: 'Collagen Peptide Eye Cream', slug: 'collagen-peptide-eye-cream', description: 'Marine collagen with caffeine and hyaluronic acid. Depuffs and brightens the eye area.', category: 'skincare', price: 3600, images: [px(SK2), px(SK1), px(SK3)], variants: [{ name: 'Size', options: ['15ml'] }], stock: 60, skinType: 'All skin types', tags: ['eye', 'collagen', 'peptides'], createdAt: '2025-03-06T10:00:00Z', featured: false },
-  { id: 'p70', name: 'AHA/BHA Exfoliating Toner', slug: 'aha-bha-exfoliating-toner', description: 'A gentle liquid exfoliant with glycolic acid, lactic acid and salicylic acid.', category: 'skincare', price: 2600, images: [px(SK3), px(SK2), px(SK1)], variants: [{ name: 'Size', options: ['150ml'] }], stock: 70, skinType: 'Oily and combination', tags: ['exfoliant', 'toner', 'aha'], createdAt: '2025-03-07T10:00:00Z', featured: false },
-  { id: 'p71', name: 'Squalane Facial Oil', slug: 'squalane-facial-oil', description: '100% plant-derived squalane. Lightweight, non-comedogenic and deeply nourishing.', category: 'skincare', price: 3200, images: [px(SK1), px(SK2), px(SK3)], variants: [{ name: 'Size', options: ['30ml'] }], stock: 55, skinType: 'Dry to normal', tags: ['oil', 'squalane', 'nourishing'], createdAt: '2025-03-08T10:00:00Z', featured: false },
-  { id: 'p72', name: 'SPF 50 Mineral Sunscreen', slug: 'spf-50-mineral-sunscreen', description: 'Broad-spectrum mineral SPF 50 with zinc oxide. Sheer, no white cast.', category: 'skincare', price: 2800, images: [px(SK2), px(SK3), px(SK1)], variants: [{ name: 'Size', options: ['50ml'] }], stock: 80, skinType: 'All skin types', tags: ['sunscreen', 'spf', 'mineral'], createdAt: '2025-03-09T10:00:00Z', featured: false },
-  { id: 'p73', name: 'Micellar Cleansing Water', slug: 'micellar-cleansing-water', description: 'Gentle micellar water with cucumber extract. Removes makeup and impurities effortlessly.', category: 'skincare', price: 1600, images: [px(SK3), px(SK1), px(SK2)], variants: [{ name: 'Size', options: ['200ml', '400ml'] }], stock: 90, skinType: 'All skin types', tags: ['cleanser', 'micellar', 'gentle'], createdAt: '2025-03-10T10:00:00Z', featured: false },
-  { id: 'p74', name: 'Sleeping Mask — Honey & Oat', slug: 'sleeping-mask-honey-oat', description: 'A nourishing overnight sleeping pack with raw honey and colloidal oat. Wake up glowing.', category: 'skincare', price: 3400, images: [px(SK1), px(SK3), px(SK2)], variants: [{ name: 'Size', options: ['80ml'] }], stock: 40, skinType: 'Dry and sensitive', tags: ['sleeping-mask', 'honey', 'brightening'], createdAt: '2025-03-11T10:00:00Z', featured: false },
-  { id: 'p75', name: 'Bakuchiol Serum 30ml', slug: 'bakuchiol-serum-30ml', description: 'Plant-based retinol alternative with bakuchiol and rosehip. Safe for sensitive skin.', category: 'skincare', price: 4200, images: [px(SK2), px(SK1), px(SK3)], variants: [{ name: 'Size', options: ['30ml'] }], stock: 35, skinType: 'Sensitive', tags: ['bakuchiol', 'gentle', 'anti-aging'], createdAt: '2025-03-12T10:00:00Z', featured: false },
-  { id: 'p76', name: 'Facial Mist — Rose & Aloe', slug: 'facial-mist-rose-aloe', description: 'A hydrating facial mist with Bulgarian rose water and aloe vera. Refresh anytime.', category: 'skincare', price: 1800, images: [px(SK3), px(SK2), px(SK1)], variants: [{ name: 'Size', options: ['100ml'] }], stock: 100, skinType: 'All skin types', tags: ['mist', 'rose', 'hydrating'], createdAt: '2025-03-13T10:00:00Z', featured: false },
-  { id: 'p77', name: 'Zinc + Niacinamide Serum', slug: 'zinc-niacinamide-serum', description: '10% niacinamide with zinc PCA. Minimises pores and controls excess oil.', category: 'skincare', price: 2200, images: [px(SK1), px(SK2), px(SK3)], variants: [{ name: 'Size', options: ['30ml'] }], stock: 75, skinType: 'Oily and combination', tags: ['niacinamide', 'zinc', 'pore-minimising'], createdAt: '2025-03-14T10:00:00Z', featured: false },
-  { id: 'p78', name: 'Ceramide Barrier Cream', slug: 'ceramide-barrier-cream', description: 'Ceramide NP, cholesterol and fatty acids. Restores the skin barrier and locks in moisture.', category: 'skincare', price: 3800, images: [px(SK2), px(SK3), px(SK1)], variants: [{ name: 'Size', options: ['50ml'] }], stock: 50, skinType: 'Dry and sensitive', tags: ['ceramide', 'barrier', 'moisturiser'], createdAt: '2025-03-15T10:00:00Z', featured: false },
-  { id: 'p79', name: 'Gua Sha Set — Rose Quartz', slug: 'gua-sha-set-rose-quartz', description: 'A rose quartz gua sha tool and jade roller set. Sculpt and de-puff daily.', category: 'skincare', price: 4500, images: [px(SK3), px(SK1), px(SK2)], variants: [], stock: 30, skinType: 'All skin types', tags: ['gua-sha', 'jade-roller', 'tool'], createdAt: '2025-03-16T10:00:00Z', featured: false },
-  { id: 'p80', name: 'Lip Treatment — Shea & Honey', slug: 'lip-treatment-shea-honey', description: 'An intensive overnight lip mask with shea butter, honey and vitamin E.', category: 'skincare', price: 1400, images: [px(SK1), px(SK3), px(SK2)], variants: [], stock: 120, skinType: 'All skin types', tags: ['lip', 'treatment', 'hydrating'], createdAt: '2025-03-17T10:00:00Z', featured: false },
-  { id: 'p81', name: 'Toner Pads — BHA 2%', slug: 'toner-pads-bha-2', description: 'Pre-soaked BHA toner pads with 2% salicylic acid. Clear pores and reduce breakouts.', category: 'skincare', price: 2400, images: [px(SK2), px(SK1), px(SK3)], variants: [{ name: 'Count', options: ['60 pads'] }], stock: 65, skinType: 'Acne-prone', tags: ['bha', 'pads', 'acne'], createdAt: '2025-03-18T10:00:00Z', featured: false },
-  { id: 'p82', name: 'Brightening Eye Patches', slug: 'brightening-eye-patches', description: 'Hydrogel eye patches with gold, collagen and caffeine. Instantly de-puff and brighten.', category: 'skincare', price: 3000, images: [px(SK3), px(SK2), px(SK1)], variants: [{ name: 'Count', options: ['60 patches'] }], stock: 45, skinType: 'All skin types', tags: ['eye', 'patches', 'hydrogel'], createdAt: '2025-03-19T10:00:00Z', featured: false },
-
-  // ── p83–p100: Accessories + remaining ──
-  { id: 'p83', name: 'Shagreen Billfold Wallet', slug: 'shagreen-billfold-wallet', description: 'Full-grain leather billfold with an embossed shagreen texture. Eight card slots.', category: 'accessories', price: 6500, images: [px(A1), px(A2), px(A3)], variants: [{ name: 'Color', options: ['Black', 'Cognac', 'Tan'] }], stock: 35, tags: ['wallet', 'leather', 'premium'], createdAt: '2025-03-05T10:00:00Z', featured: true },
-  { id: 'p84', name: 'Braided Leather Bracelet', slug: 'braided-leather-bracelet', description: 'Hand-braided full-grain leather with a magnetic clasp. Minimal and refined.', category: 'accessories', price: 2800, images: [px(A2), px(A1), px(A4)], variants: [{ name: 'Size', options: ['S/M', 'L/XL'] }], stock: 40, tags: ['bracelet', 'leather', 'gift'], createdAt: '2025-03-06T10:00:00Z', featured: false },
-  { id: 'p85', name: 'Oud Wood Prayer Beads', slug: 'oud-wood-prayer-beads', description: '33-bead tasbih in authentic oud wood. Naturally fragrant and beautifully weighted.', category: 'accessories', price: 5500, images: [px(A3), px(A4), px(A1)], variants: [], stock: 25, tags: ['misbaha', 'oud', 'prayer'], createdAt: '2025-03-07T10:00:00Z', featured: false },
-  { id: 'p86', name: 'Silk Pocket Square — Midnight', slug: 'silk-pocket-square-midnight', description: 'A hand-rolled pure silk pocket square in deep midnight blue. Adds polish to any suit.', category: 'accessories', price: 1800, images: [px(A4), px(A3), px(A2)], variants: [{ name: 'Color', options: ['Midnight', 'Ivory', 'Burgundy'] }], stock: 60, tags: ['pocket-square', 'silk', 'formal'], createdAt: '2025-03-08T10:00:00Z', featured: false },
-  { id: 'p87', name: 'Leather Laptop Bag — Brown', slug: 'leather-laptop-bag-brown', description: 'Full-grain leather briefcase for up to 15" laptops. Padded interior and brass hardware.', category: 'accessories', price: 18500, images: [px(A2), px(A1), px(A5)], variants: [{ name: 'Color', options: ['Brown', 'Black'] }], stock: 12, tags: ['bag', 'laptop', 'leather'], createdAt: '2025-03-09T10:00:00Z', featured: false },
-  { id: 'p88', name: 'Stainless Steel Misbaha — Black', slug: 'stainless-steel-misbaha-black', description: 'Modern 33-bead misbaha in matte black stainless steel. Minimalist and durable.', category: 'accessories', price: 3500, images: [px(A3), px(A5), px(A4)], variants: [], stock: 40, tags: ['misbaha', 'prayer', 'modern'], createdAt: '2025-03-10T10:00:00Z', featured: false },
-  { id: 'p89', name: 'Personalised Cufflinks', slug: 'personalised-cufflinks', description: 'Brushed sterling silver cufflinks with an engravable oval face. A timeless gift.', category: 'accessories', price: 9500, images: [px(A1), px(A3), px(A2)], variants: [{ name: 'Engraving', options: ['None', 'Initials'] }], stock: 18, tags: ['cufflinks', 'silver', 'gift'], createdAt: '2025-03-11T10:00:00Z', featured: false },
-  { id: 'p90', name: 'Travel Document Wallet', slug: 'travel-document-wallet', description: 'Full-grain leather travel organiser with passport slot, card holders and boarding pass pocket.', category: 'accessories', price: 5200, images: [px(A2), px(A5), px(A1)], variants: [{ name: 'Color', options: ['Black', 'Tan', 'Cognac'] }], stock: 28, tags: ['travel', 'wallet', 'leather'], createdAt: '2025-03-12T10:00:00Z', featured: false },
-  { id: 'p91', name: 'Hand-Knotted Silk Tie', slug: 'hand-knotted-silk-tie', description: 'Seven-fold silk tie in rich jacquard. Hand-rolled edges and a weighted drop.', category: 'accessories', price: 6800, images: [px(A5), px(A3), px(A2)], variants: [{ name: 'Color', options: ['Navy', 'Burgundy', 'Forest'] }], stock: 22, tags: ['tie', 'silk', 'formal'], createdAt: '2025-03-13T10:00:00Z', featured: false },
-  { id: 'p92', name: 'Cashmere Gloves — Charcoal', slug: 'cashmere-gloves-charcoal', description: 'Touchscreen-compatible cashmere gloves with a suede patch palm. Warm and refined.', category: 'accessories', price: 4800, images: [px(A3), px(A1), px(A5)], variants: [{ name: 'Size', options: ['S/M', 'L/XL'] }], stock: 24, tags: ['gloves', 'cashmere', 'winter'], createdAt: '2025-03-14T10:00:00Z', featured: false },
-  { id: 'p93', name: 'Leather Key Fob', slug: 'leather-key-fob', description: 'Vegetable-tanned Italian leather key fob with a solid brass swivel. Ages beautifully.', category: 'accessories', price: 1800, images: [px(A1), px(A4), px(A3)], variants: [{ name: 'Color', options: ['Tan', 'Black'] }], stock: 60, tags: ['key', 'leather', 'gift'], createdAt: '2025-03-15T10:00:00Z', featured: false },
-  { id: 'p94', name: 'Canvas Tote Bag — Natural', slug: 'canvas-tote-bag-natural', description: 'Heavy-duty cotton canvas tote with leather handles and a zipped inner pocket.', category: 'accessories', price: 2800, images: [px(A4), px(A2), px(A3)], variants: [{ name: 'Color', options: ['Natural', 'Black'] }], stock: 45, tags: ['tote', 'canvas', 'casual'], createdAt: '2025-03-16T10:00:00Z', featured: false },
-  { id: 'p95', name: 'Wool Flat Cap — Herringbone', slug: 'wool-flat-cap-herringbone', description: 'Classic herringbone wool flat cap with a fully lined interior. Structured and timeless.', category: 'accessories', price: 4200, images: [px(A2), px(A3), px(A1)], variants: [{ name: 'Size', options: ['S/M', 'L/XL'] }], stock: 20, tags: ['cap', 'wool', 'classic'], createdAt: '2025-03-17T10:00:00Z', featured: false },
-  { id: 'p96', name: 'Sterling Silver Ring', slug: 'sterling-silver-ring', description: 'A solid 925 sterling silver band with a brushed finish. Minimal and elegant.', category: 'accessories', price: 3800, images: [px(A3), px(A5), px(A1)], variants: [{ name: 'Size', options: ['6', '7', '8', '9', '10'] }], stock: 30, tags: ['ring', 'silver', 'minimal'], createdAt: '2025-03-18T10:00:00Z', featured: false },
-  { id: 'p97', name: 'Luxury Gift Box Set', slug: 'luxury-gift-box-set', description: 'A curated gift box with a leather card holder, silk pocket square and oud wood bracelet.', category: 'accessories', price: 14500, compareAtPrice: 17500, images: [px(A1), px(A4), px(A3)], variants: [], stock: 15, tags: ['gift', 'set', 'luxury'], createdAt: '2025-03-19T10:00:00Z', featured: true },
-  { id: 'p98', name: 'Lace Embroidered Abaya — Midnight', slug: 'lace-embroidered-abaya-midnight', description: 'A midnight blue abaya with silver lace embroidery at the cuffs and neckline. Regal and modest.', category: 'womens-lifestyle', price: 21000, images: [px(NQ1), px(NQ3), px(NQ5)], variants: [{ name: 'Size', options: ['XS', 'S', 'M', 'L', 'XL'] }], stock: 10, tags: ['abaya', 'lace', 'midnight'], createdAt: '2025-03-20T10:00:00Z', featured: false },
-  { id: 'p99', name: 'Collagen Boosting Serum 30ml', slug: 'collagen-boosting-serum-30ml', description: 'A concentrated collagen serum with vitamin C and hyaluronic acid. Firms and lifts visibly.', category: 'skincare', price: 5200, images: [px(SK1), px(SK2), px(SK3)], variants: [{ name: 'Size', options: ['30ml'] }], stock: 35, skinType: 'All skin types', tags: ['collagen', 'serum', 'anti-aging'], createdAt: '2025-03-20T10:00:00Z', featured: false },
-  { id: 'p100', name: 'Leather Watch Strap — Brown', slug: 'leather-watch-strap-brown', description: 'Handstitched full-grain leather watch strap in cognac brown. Fits 18-22mm lugs.', category: 'accessories', price: 3200, images: [px(A1), px(A2), px(A5)], variants: [{ name: 'Lug Width', options: ['18mm', '20mm', '22mm'] }], stock: 40, tags: ['watch', 'strap', 'leather'], createdAt: '2025-03-20T10:00:00Z', featured: false },
+  // ==========================================
+  // OTHER CATEGORIES (Product-only)
+  // ==========================================
+  {
+    id: 'prod-signature-shirt',
+    slug: 'signature-shirt-mens-shirt',
+    name: 'Signature Shirt',
+    description: 'Woven from long-staple Egyptian cotton thread. Elegant tailored details with double stitching and luxury pearl buttons.',
+    price: 1590,
+    category: 'mens-wear',
+    images: [
+      'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80'
+    ],
+    stock: 35,
+    variants: [{ name: 'Size', options: ['M', 'L', 'XL', 'XXL'] }]
+  },
+  {
+    id: 'prod-leather-wallet',
+    slug: 'leather-wallet-premium-wallet',
+    name: 'Leather Wallet',
+    description: 'Crafted with certified full-grain vegetable-tanned leather. Holds up to 8 cards with designated quick-access pockets.',
+    price: 1290,
+    category: 'accessories',
+    images: [
+      'https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=800&q=80'
+    ],
+    stock: 40,
+    variants: [{ name: 'Color', options: ['Classic Black', 'Cognac Brown'] }]
+  }
 ];
 
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
 export async function fetchProducts(): Promise<Product[]> {
-  await delay(300);
-  return products;
+  return MOCK_PRODUCTS;
 }
 
 export async function fetchFeaturedProducts(): Promise<Product[]> {
-  await delay(300);
-  return products.filter((p) => p.featured === true);
+  return MOCK_PRODUCTS;
 }
 
 export async function fetchProductsByCategory(category: string): Promise<Product[]> {
-  await delay(300);
-  return products.filter((p) => p.category === category);
+  return MOCK_PRODUCTS.filter((p) => p.category === category);
 }
 
 export async function fetchProductBySlug(slug: string): Promise<Product | undefined> {
-  await delay(300);
-  return products.find((p) => p.slug === slug);
+  return MOCK_PRODUCTS.find((p) => p.slug === slug);
 }
 
 export async function searchProducts(query: string): Promise<Product[]> {
-  await delay(200);
-  const q = query.toLowerCase().trim();
-  return products.filter(
-    (p) =>
-      p.name.toLowerCase().includes(q) ||
-      p.description.toLowerCase().includes(q) ||
-      p.category.toLowerCase().includes(q) ||
-      p.tags?.some((t) => t.toLowerCase().includes(q)),
+  const q = query.toLowerCase();
+  return MOCK_PRODUCTS.filter(
+    (p) => p.name.toLowerCase().includes(q) || p.description.toLowerCase().includes(q)
   );
 }
